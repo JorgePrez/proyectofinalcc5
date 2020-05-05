@@ -1,0 +1,157 @@
+h1 {
+    color: #000;
+  }
+  
+  .contenedor {
+    width: 100%;
+    margin-right: 100rem;
+    height: 50vh;
+    background-color: #957bbe;
+    border-radius: 0.25rem;
+  }
+  
+  .first {
+    background: verde;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .second {
+    background: purple;
+    color: #fff;
+    font-size: 3em;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #cuadro1 {
+    -webkit-border-radius: 22px 22px 22px 22px;
+    -moz-border-radius: 22px 22px 22px 22px;
+    border-radius: 22px 22px 22px 22px;
+    margin: 30px;
+    background-color: red;
+    padding: 30px;
+    color: black;
+  }
+  
+  #cuadro2 {
+    -webkit-border-radius: 22px 22px 22px 22px;
+    -moz-border-radius: 22px 22px 22px 22px;
+    border-radius: 22px 22px 22px 22px;
+    margin: 30px;
+    background-color: white;
+    padding: 30px;
+    color: black;
+  }
+  
+  #cuadro3 {
+    margin: 10px;
+    background-color: green;
+    padding: 10px;
+    color: black;
+  }
+  
+  #cblanco {
+    -webkit-border-radius: 22px 22px 22px 22px;
+    -moz-border-radius: 22px 22px 22px 22px;
+    border-radius: 22px 22px 22px 22px;
+    margin: 30px;
+    background-color: white;
+    padding: 30px;
+    color: black;
+  }
+  
+  .row img {
+    width: 175px;
+    height: 175px;
+  }
+  
+  .sidebar {
+    width: 20%;
+    height: 11rem;
+    background-color: #80bdf8;
+    border-radius: 0.25rem;
+  }
+  
+  .azul {
+    background-color: skyblue;
+  }
+  
+  .verde {
+    background-color: #58FAD0;
+  }
+  
+  #alto1 {
+    height: 40%;
+  }
+  
+  #alto2 {
+    height: 31%;
+  }
+  
+  #alto3 {
+    height: 29%;
+  }
+  
+  .blanco {
+    background-color: #FFFFFF;
+  }
+  
+  
+  
+  
+  
+  #main-container {
+    margin: 150px auto;
+    width: 600px;
+  }
+  
+  table {
+    background-color: white;
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 20px;
+  }
+  
+  thead {
+    background-color: #246355;
+    border-bottom: solid 5px #0F362D;
+    color: white;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #ddd;
+  }
+  
+  tr:hover td {
+    background-color: #369681;
+    color: white;
+  }
+
+  
+  #cfecha {
+    margin: 15px 0;
+    display: block;
+  }
+  
+  #cfecha span {
+    color:black;
+    font-size: 25px;
+  }
+  
+  #chora {
+    color:black;
+    font-size: 25px;
+    display: block;
+  }
+  
+  /*# sourceMappingURL=estilos.css.map */
+  
