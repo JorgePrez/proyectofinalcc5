@@ -65,7 +65,7 @@ if (!$conn){
 
                                         <div class="col-8  d-flex justify-content-center align-items-center">
                                             <h2> 
-                                                <label for="Codigo">Codigo de Empleado:</label>
+                                                <label for="Codigo Empleado">Codigo de Empleado:</label>
 
                                             </h2>
                                             
