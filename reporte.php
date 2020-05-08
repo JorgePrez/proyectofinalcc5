@@ -216,6 +216,7 @@ if (!$conn){
 
     $totalentradatarde=0;
     $totalsalidatemprano=0;
+    $ausencia=0;
 
     
     
@@ -241,7 +242,19 @@ if (!$conn){
     
         $Entrada = $row[1];
 
+
+        if(is_null($Entrada)){
+         $Entrada = "----*----";
+         $ausencia=$ausencia+1;
+
+
+ 
+      } else{
+
+
+
         $horaInicioEmpleado = new DateTime($Entrada);
+      }
 
      }
      
@@ -261,7 +274,16 @@ if (!$conn){
      while ($row = pg_fetch_row($result1)) {
     
         $Salida = $row[1];
+
+        if(is_null($Salida)){
+         $Salida = "----*----";
+         $ausencia=$ausencia+1;
+
+
+ 
+      } else{
         $horaSalidaEmpleado=new DateTime($Salida);
+      }
 
      }
 
@@ -348,10 +370,36 @@ if (!$conn){
       
         
      
-     if($CHorasTrabajadas=="-1"){
+    /* if($CHorasTrabajadas=="-1"){
         echo "\t\t<td>Olvido Marcar</td>\n";
 
-     } else{
+     }else if($ausencia==2){
+         echo "\t\t<td>No asistio</td>\n";
+
+        }*/
+
+
+    
+
+
+      
+      
+      if(($CHorasTrabajadas=="-1")||($ausencia==2)){
+
+         if($ausencia==2){
+            echo "\t\t<td>No se presento </td>\n";
+
+         }
+         else{
+
+        
+          echo "\t\t<td>Olvido Marcar</td>\n";
+
+         }
+ 
+         }
+     
+      else{
 
         if($cmdtuples==0){
             echo "\t\t<td>----------------</td>\n";
@@ -371,16 +419,12 @@ if (!$conn){
 
         }
          
-
-     
-
-    
-
-  
      }
 
 
      $CHorasTrabajadas="0";
+     $ausencia=0;
+
 
 
 

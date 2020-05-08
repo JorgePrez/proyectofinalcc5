@@ -29,15 +29,6 @@
 })();
 
 
-function go(){
-
-  if (document.form1.password.value=='12345678' && document.form1.login.value=='admin'){ 
-          document.form.submit(); 
-      } 
-      else{ 
-           alert("Porfavor ingrese, nombre de administrador y su respectiva contraseña "); 
-      } 
-  } 
 
 
 (function() {

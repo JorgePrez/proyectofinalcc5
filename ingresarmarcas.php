@@ -7,10 +7,6 @@ if (!$conn){
 
     ?>
 
-
-
-
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -50,7 +46,7 @@ if (!$conn){
 
 
                                 <div class="col-12  d-flex justify-content-center">
-                                    <h1>Confirmar Credenciales</h1>
+                                    <h1>Ingresar Marcas</h1>
 
 
                                
@@ -58,7 +54,7 @@ if (!$conn){
 
                             <div class="col-12  d-flex justify-content-center">
 
-                                <form id="form1" id=cuadro1 action="administracion.html" onsubmit='return validar()'>
+                                <form id="form1" id=cuadro1 action="enviarmarcaadmin.php" method="post" class="needs-validation" novalidate>
 
                                     <div class="row" >
                                         <div class="col-12 d-flex justify-content-center">
@@ -69,22 +65,66 @@ if (!$conn){
 
                                         <div class="col-8  d-flex justify-content-center align-items-center">
                                             <h2> 
-                                                <label for="usuario">Nombre de Supervisor :</label>
+                                                <label for="Codigo Empleado">Codigo de Empleado:</label>
 
                                             </h2>
-
                                             
                                         </div>
 
 
                                         <div class="col-4  d-flex justify-content-center align-items-center">
-                                            <input name="usuario" type="text" class="form-control" id="usuario" placeholder="" value="" required>
-                                            <div class="valid-feedback">!Es válido!</div>
-                                            <div class="invalid-feedback">Complete el campo.</div>    
+                                            <select name="codigoempleado" type="text" class="form-control" id="codigoempleado">
+                                       
+                                                <?php
+    
+                                    
+    $query = "select * from empleado order by empleado.codigoempleado";
+    
+    $result = pg_query($conn, $query) or die('ERROR : ' . pg_last_error());
+    
+    $codigoempleado= 0;
+    
+    
+    
+    while ($row = pg_fetch_row($result)) {
+    
+        $codigoempleado=$row[0];
+    
+    echo '<option value="'.$codigoempleado.'">'."$codigoempleado".'</option>';
+    }
+    
+            ?>
+    
+                                                </select> 
+                                             
                                           </div>
 
 
                                         </div> 
+
+
+                                        <div class="row" >
+                                            <div class="col-12 d-flex justify-content-center">
+                                                <h1><br/></h1>
+    
+                                            </div>
+    
+    
+                                            <div class="col-8  d-flex justify-content-center align-items-center">
+                                                <h2> 
+                                                    <label for="fecha">Fecha Actual:</label>
+    
+                                                </h2>  
+                                            </div>
+                                            <div class="col-4  d-flex justify-content-center align-items-center">
+                                            <input name="fecha" type="date" class="form-control" id="fecha" placeholder="" value="" required>
+                                            <div class="invalid-feedback">Complete el campo.</div>   
+                                           
+                                          </div>
+                                        </div>
+    
+
+                                   
 
                                     <div class="row" >
                                         <div class="col-12 d-flex justify-content-center">
@@ -95,20 +135,40 @@ if (!$conn){
 
                                         <div class="col-8  d-flex justify-content-center align-items-center">
                                             <h2> 
-                                                <label for="contrasenia">Contraseña:</label>
+                                                <label for="horaentrada">Hora Entrada:</label>
 
                                             </h2>  
                                         </div>
                                         <div class="col-4  d-flex justify-content-center align-items-center">
-                                            <input name="contrasenia" type="password" class="form-control" id="contrasenia" placeholder="" value="" required>
-                                            <div class="valid-feedback">!Es válido!</div>
-                                            <div class="invalid-feedback">Complete el campo.</div>    
+                                            <input name="horaentrada" type="time" class="form-control" id="horaentrada" placeholder="" value="null" required>
+                                            <div class="invalid-feedback">Complete el campo.</div>   
+                                           
+                                          </div>
+                                    </div>
+
+
+                                    <div class="row" >
+                                        <div class="col-12 d-flex justify-content-center">
+                                            <h1><br/></h1>
+
+                                        </div>
+
+
+                                        <div class="col-8  d-flex justify-content-center align-items-center">
+                                            <h2> 
+                                                <label for="horasalida">Hora Salida:</label>
+
+                                            </h2>  
+                                        </div>
+                                        <div class="col-4  d-flex justify-content-center align-items-center">
+                                        <input name="horasalida" type="time" class="form-control" id="horasalida" placeholder="" value="" required>
+                                            <div class="invalid-feedback">Complete el campo.</div> 
+                                             
                                           </div>
                                     </div>
 
 
 
-                                    
                                     <div class="row" >
 
                                         <div class="col-12 d-flex justify-content-center">
@@ -118,42 +178,27 @@ if (!$conn){
 
                                         <div class="col-12  d-flex justify-content-center align-items-center">
                                             <h2> 
-                                                <button class="btn-primary" type="submit">Ir a menu de administración</button>
+                                                <button class="btn-primary" type="submit">Registrar</button>
 
                                             </h2>  
                                         </div>
 
-
-                                                                                
-<?php
-
-$query = "select * from administrador";
-
-$result = pg_query($conn, $query) or die('ERROR AL INSERTAR DATOS: ' . pg_last_error());
-
-$nombre=0;
-$contrasenia=0;
-
-
-while ($row = pg_fetch_row($result)) {
-
-    $nombre= $row[0];
-    $contrasenia= $row[1];
-
-}
-
-       echo "<input type=hidden class=form-control name=usuariotrue id=usuariotrue value='$nombre' required>\n";
-
-       echo "<input type=hidden class=form-control name=contraseniatrue id=contraseniatrue value='$contrasenia' required>\n";
-
-
-       ?>
+                                          
+                              <div class="col-12  d-flex justify-content-center">
+                                <h2><br/></h2> </div>
+                              <div class="col-12 d-flex justify-content-center align-items-center">
+                                <h2><a href="administracion.html"><u>Regresar a Menu Administracion </u></a></h2>
 
 
 
-                                  
 
-                                   
+                          
+                          </div>
+
+
+
+
+                                </div>
 
 
 
@@ -202,7 +247,7 @@ while ($row = pg_fetch_row($result)) {
       
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/validacionadministracion.js"></script>
+    <script src="js/validacion.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
